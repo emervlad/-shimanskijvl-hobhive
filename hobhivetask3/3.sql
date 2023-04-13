@@ -13,7 +13,7 @@ WITH t1 AS (
 )
 SELECT r.inn, r.daay, r.sum
 FROM   (SELECT e.*, 
-               RANK() OVER 
+               ROW_NUMBER() OVER 
                  (PARTITION BY e.inn ORDER BY e.sum DESC) AS pos
         FROM   t1 AS e) AS r
 WHERE  r.pos = 1 and r.inn is not null
