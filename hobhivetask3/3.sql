@@ -4,6 +4,7 @@ SET hive.cli.print.header=false;
 SET mapred.input.dir.recursive=true;
 SET hive.mapred.supports.subdirectories=true;
 SET hive.groupby.orderby.position.alias=true;
+SET hive.exec.reducers.max=8;
 
 USE shimanskijvl;
 
