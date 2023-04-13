@@ -16,5 +16,5 @@ FROM   (SELECT e.*,
                RANK() OVER 
                  (PARTITION BY e.inn ORDER BY e.sum DESC) AS pos
         FROM   t1 AS e) AS r
-WHERE  r.pos = 1
+WHERE  r.pos = 1 and r.inn is not null
 ORDER BY r.inn;
