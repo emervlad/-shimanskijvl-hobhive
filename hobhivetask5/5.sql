@@ -9,5 +9,5 @@ SET mapreduce.job.reduces=8;
 USE shimanskijvl_test;
 
 with tbl as (
-    select content.userInn as inn, subtype, LAG(subtype, 1, '') OVER (ORDER BY 1, content.dateTime.datee) as prevtype, LEAD(subtype, 1, '') OVER (ORDER BY 1, content.dateTime.datee) as nexttype from kkt
-) select tbl.inn from tbl where tbl.subtype = 'receipt' and ( tbl.prevtype = 'closeShift' or tbl.nexttype = 'openShift' ) group by tbl.inn order by tbl.inn limit 50;
+    select content.userInn as inn, subtype, LAG(subtype, 1, '') OVER (ORDER BY content.userInn, content.dateTime.datee) as prevtype, LEAD(subtype, 1, '') OVER (ORDER BY content.userInn, content.dateTime.datee) as nexttype from kkt
+) select tbl.inn from tbl where tbl.subtype = 'receipt' and tbl.prevtype = 'closeShift' group by tbl.inn order by tbl.inn limit 50;
