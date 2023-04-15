@@ -9,7 +9,7 @@ SET hive.exec.reducers.max=8;
 USE shimanskijvl;
 
 WITH t1 AS (
-    select content.userInn as inn, from_unixtime(cast(content.dateTime.datee / 1000 as int), 'dd') as daay, NVL(sum(content.totalSum), 0 ) as sum from kkt group by content.userInn, 2 order by sum 
+    select content.userInn as inn, from_unixtime(cast((content.dateTime.datee / 1000) as int), 'dd') as daay, NVL(sum(content.totalSum), 0 ) as sum from kkt group by content.userInn, 2 order by sum 
 )
 SELECT r.inn, r.daay, r.sum
 FROM   (SELECT e.*, 
