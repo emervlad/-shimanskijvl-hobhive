@@ -4,7 +4,7 @@ SET hive.cli.print.header=false;
 SET mapred.input.dir.recursive=true;
 SET hive.mapred.supports.subdirectories=true;
 
-USE shimanskijvl_test;
+USE shimanskijvl;
 
 DROP TABLE IF EXISTS kkt_orc;
 
