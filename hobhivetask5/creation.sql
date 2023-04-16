@@ -6,6 +6,7 @@ SET hive.mapred.supports.subdirectories=true;
 
 USE shimanskijvl;
 
+
 DROP TABLE IF EXISTS kkt;
 
 CREATE external TABLE kkt (  
