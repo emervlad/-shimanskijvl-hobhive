@@ -6,7 +6,7 @@ SET hive.mapred.supports.subdirectories=true;
 SET hive.groupby.orderby.position.alias=true;
 SET mapreduce.job.reduces=8;
 
-USE shimanskijvl_test;
+USE shimanskijvl;
 with sum as (
   select content.userInn as inn, from_unixtime(content.dateTime.datee, 'HH') < 13 as daay, round(avg(content.totalSum), 0) as sum from kkt where subtype = 'receipt' group by content.userInn, 2
 )
