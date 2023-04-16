@@ -6,7 +6,7 @@ SET hive.mapred.supports.subdirectories=true;
 SET hive.groupby.orderby.position.alias=true;
 SET mapreduce.job.reduces=8;
 
-USE shimanskijvl_test;
+USE shimanskijvl;
 
 with tbl as (
     select content.userInn as inn, subtype, LAG(subtype, 1, '') OVER (ORDER BY content.userInn, content.dateTime.datee) as prevtype, LEAD(subtype, 1, '') OVER (ORDER BY content.userInn, content.dateTime.datee) as nexttype from kkt
